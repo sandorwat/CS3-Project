@@ -119,6 +119,10 @@ class Stage extends JLabel implements ActionListener {
 		return muted;
 	}
 
+	public int getScore() {
+		return score;
+	}
+
 	@Override
 	public void paintComponent(Graphics g) {
 
