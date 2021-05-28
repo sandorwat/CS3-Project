@@ -186,8 +186,8 @@ class Game extends JPanel implements ActionListener {
 
 			font = new Font("Helvetica", Font.BOLD, 20);
 			g2d.setFont(font);
-			g2d.drawString("↑", 174, 110);
-			g2d.drawString("← ↓ →", 150, 130);
+			g2d.drawString("" + (char) 8593, 174, 110);
+			g2d.drawString("" + (char) 8592 + " " + (char) 8595 + " " + (char) 8594, 150, 130);
 			g2d.drawString("Use the arrow keys to move.", 250, 120);
 
 			g2d.drawImage(new ImageIcon("src/spacebar.png").getImage(), 155, 162, this);
@@ -212,6 +212,9 @@ class Game extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		if (stage != null && stage.gameOver()) {
+			int s = stage.getScore();
+			if (s > hiScore)
+				hiScore = s;
 			muted = stage.isMuted();
 			remove(stage);
 			stage = null;
